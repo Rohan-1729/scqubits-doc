@@ -49,7 +49,7 @@ Capacitive noise corresponds to noise coming from a lossy capacitance. The assum
 
 .. math::
 
-    S(\omega) = \frac{\omega \hbar}{|\omega| C_J Q_{\rm cap}(\omega)} \left(1 + \coth \frac{\hbar |\omega|}{2 k_B T} \right)
+    S(\omega) = \frac{\hbar}{C_J Q_{\rm cap}(\omega)}\frac{\omega}{2|\omega|} \left(1 + \coth \frac{\hbar \omega}{2 k_B T} \right)
 
 where :math:`C_J` is the relevant capacitance, and :math:`Q_{\rm cap}` the corresponding capacitive quality factor.
 The default value of the frequency-dependent quality factor is assumed to be
@@ -123,7 +123,7 @@ Inductive noise due to lossy inductance. The assumed spectral density reads
 
 .. math::
 
-    S(\omega) = \frac{\omega \hbar}{|\omega| L_{J} Q_{\rm ind}(\omega)} \left(1 + \coth \frac{\hbar |\omega|}{2 k_B T} \right)
+    S(\omega) = \frac{\hbar}{L_{J} Q_{\rm ind}(\omega)} \frac{\omega}{2|\omega|} \left(1 + \coth \frac{\hbar \omega}{2 k_B T}\right)
 
 where :math:`L_J` is the relevant inductance or superinductance, and :math:`Q_{\rm ind}` the corresponding inductive
 quality factor. The default value of the frequency-dependent quality factor is assumed to be
@@ -201,7 +201,7 @@ Noise from a charge coupling to an impedance :math:`Z(\omega)`. The assumed spec
 
 .. math::
 
-    S(\omega) = \frac{\hbar \omega}{{\rm Re} Z(\omega)} \left(1 + \coth \frac{\hbar |\omega|}{2 k_B T} \right).
+    S(\omega) = \hbar \omega\,\,{\rm Re} Z(\omega) \frac{\omega}{2|\omega|} \left(1 + \coth \frac{\hbar \omega}{2 k_B T}\right).
 
 By default we assume the qubit couples to a infinite transmission line, which leads to 
 
@@ -273,7 +273,7 @@ Noise due to current fluctuations in the flux-bias line. The assumed spectral de
 
 .. math::
 
-    S(\omega) = \frac{M^{2} \omega \hbar}{R} \left(1 + \coth \frac{\hbar |\omega|}{2 k_B T} \right),
+    S(\omega) = \frac{M^{2} \omega \hbar}{R} \frac{\omega}{2|\omega|} \left(1 + \coth \frac{\hbar \omega}{2 k_B T}\right),
 
 where :math:`M` is the mutual inductance between qubit and the flux line.
 
@@ -343,7 +343,7 @@ Noise due to quasiparticle tunelling. The assumed spectral density reads
 
 .. math::
 
-    S(\omega) = \hbar \omega {\rm Re} Y_{\rm qp}(\omega) \left(1 + \coth \frac{\hbar |\omega|}{2 k_B T} \right)
+    S(\omega) = \hbar \omega {\rm Re} Y_{\rm qp}(\omega) \frac{\omega}{2|\omega|} \left(1 + \coth \frac{\hbar \omega}{2 k_B T}\right)
 
 where :math:`L_J` (with :math:`E_J = \phi_0^2/L_J` ) is the relevant inductance or superinductance, and :math:`Q_{\rm ind}` the corresponding inductive
 quality factor. The default value of the frequency-dependent quality factor is assumed to be
@@ -430,4 +430,5 @@ To see a detailed signature of this method, see the API description of qubits th
 :ref:`Transmon <qubit_tunable_transmon>`, 
 :ref:`TunableTransmon <qubit_tunable_transmon>`, 
 :ref:`ZeroPi <qubit_zeropi>`.
+
 
